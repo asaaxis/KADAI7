@@ -21,7 +21,7 @@ class PicturesController < ApplicationController
     @picture = current_user.pictures.build(picture_params)
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully created." }
+        format.html { redirect_to picture_url(@picture), notice: "画像を投稿しました." }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -33,7 +33,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully updated." }
+        format.html { redirect_to picture_url(@picture), notice: "画像を編集しました." }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,6 +57,6 @@ class PicturesController < ApplicationController
     end
 
     def picture_params
-      params.require(:picture).permit(:image, :content, :user_id)
+      params.require(:picture).permit(:image, :content, :user_id, :image_cache)
     end
 end

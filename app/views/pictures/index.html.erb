@@ -15,9 +15,9 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= picture.image %></td>
+        <td><%= image_tag picture.image.url %></td>
         <td><%= picture.content %></td>
-        <td><%= picture.user_id %></td>
+        <td><%= picture.user.name %></td>
         <td><%= link_to '詳細を確認する', picture %></td>
         <td><%= link_to '編集する', edit_picture_path(picture) %></td>
         <td><%= link_to '削除', picture, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
