@@ -21,7 +21,6 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(picture_params)
     @picture = current_user.pictures.build(picture_params)
     respond_to do |format|
       if @picture.save
@@ -50,7 +49,7 @@ class PicturesController < ApplicationController
     @picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
+      format.html { redirect_to pictures_url, notice: "投稿を削除しました." }
       format.json { head :no_content }
     end
   end
