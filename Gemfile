@@ -15,8 +15,9 @@ gem 'bcrypt'
 gem 'carrierwave'
 gem 'mini_magick'
 
-# gem 'bootstrap', '~> 4.4.1'
-# gem 'jquery-rails'
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
